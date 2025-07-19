@@ -2,15 +2,12 @@ on:
   pull_request: {}
 
 jobs:
-  test:
+  test-all:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-node@v4
         with:
           node-version: "24.4.1"
+      - uses: extractions/setup-just@v2
       - uses: actions/checkout@v4
-      - run: docker compose up --wait
-      - run: npm clean-install
-      - run: npm run transpile
-      - run: npm run test
-      - run: docker compose down --volumes
+      - run: just test-all
