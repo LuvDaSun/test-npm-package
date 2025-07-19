@@ -5,7 +5,6 @@ jobs:
   build-all:
     runs-on: ubuntu-latest
     steps:
-      - run: curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
       - uses: actions/setup-node@v4
         with:
           node-version: "24.4.1"
