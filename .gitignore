@@ -1,0 +1,15 @@
+.*
+
+*.tsbuildinfo
+
+!.gitignore
+!.dockerignore
+
+node_modules/
+transpiled/
+typed/
+bundled/
+artifacts/
+
+!.vscode/
+!.github/

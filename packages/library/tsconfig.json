@@ -1,0 +1,14 @@
+{
+  "extends": "@tsconfig/node24",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./transpiled",
+    "declarationDir": "./typed",
+    "sourceMap": true,
+    "declaration": true,
+    "composite": true,
+    "strictNullChecks": true
+  },
+  "include": ["src/**/*"],
+  "references": []
+}
