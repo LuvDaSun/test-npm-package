@@ -11,7 +11,8 @@ jobs:
           node-version: "24.4.1"
       - uses: extractions/setup-just@v2
       - uses: actions/checkout@v4
-      - run: just build-all
+      - run: npm clean-install --workspace packages/library
+      - run: just build-library
       - uses: actions/upload-artifact@v4
         with:
           name: library.tgz

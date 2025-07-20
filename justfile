@@ -8,7 +8,6 @@ build-all: \
   build-tester \
 
 build-library: \
-  install-all \
 
   mkdir -p artifacts/
   mkdir -p artifacts/library
@@ -29,7 +28,6 @@ build-library: \
 
 build-tester: \
   build-library \
-  install-all \
 
   npm --workspace tester run transpile
 
