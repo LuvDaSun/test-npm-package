@@ -15,15 +15,17 @@ build-library: \
 
   npm --workspace library run transpile
 
+  mv artifacts/$( npm pack \
+    --workspace library \
+    --pack-destination artifacts/ \
+  ) artifacts/library.tgz \
+
   tar \
     -x \
-    -f artifacts/$( npm pack \
-      --workspace library \
-      --pack-destination artifacts/ \
-    ) \
+    -f artifacts/library.tgz \
     -C artifacts/library/ \
     --strip-components 1 \
-    package/
+    package/ \
 
 build-tester: \
   build-library \
