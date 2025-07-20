@@ -23,9 +23,10 @@ build-library: \
 
   npm --workspace library run transpile
 
-  npm pack \
+  mv artifacts/$( npm pack \
     --workspace library \
     --pack-destination artifacts/ \
+  ) artifacts/library.tgz
 
 build-tester: \
   install-tester \
