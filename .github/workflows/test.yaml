@@ -1,5 +1,6 @@
 on:
   push: {}
+  pull-request: {}
 
 jobs:
   test-all:
