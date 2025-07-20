@@ -1,15 +1,6 @@
 install-all: \
-  install-library \
-  install-tester \
 
-install-library: \
-
-  npm --workspace library clean-install
-
-install-tester: \
-  build-library \
-
-  npm --workspace tester clean-install
+  npm clean-install
 
 
 build-all: \
@@ -17,7 +8,7 @@ build-all: \
   build-tester \
 
 build-library: \
-  install-library \
+  install-all \
 
   mkdir -p artifacts/
   mkdir -p artifacts/library
@@ -35,7 +26,8 @@ build-library: \
     package/
 
 build-tester: \
-  install-tester \
+  build-library \
+  install-all \
 
   npm --workspace tester run transpile
 
