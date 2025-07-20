@@ -7,21 +7,27 @@ build-all: \
   build-library \
   build-tester \
 
-
 build-library: \
   install-all \
 
   mkdir -p artifacts/
+  mkdir -p artifacts/library
 
   npm --workspace library run transpile
 
-  npm pack \
-    --workspace library \
-    --pack-destination artifacts/ \
+  tar \
+    -x \
+    -f artifacts/$( npm pack \
+      --workspace library \
+      --pack-destination artifacts/ \
+    ) \
+    -C artifacts/library/ \
+    --strip-components 1 \
+    package/
 
 build-tester: \
-  install-all \
   build-library \
+  install-all \
 
   npm --workspace tester run transpile
 
@@ -30,4 +36,3 @@ test-all: \
   build-all \
 
   node --test ./packages/*/transpiled/**/*.test.js
-

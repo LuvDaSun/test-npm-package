@@ -4,7 +4,8 @@ import:
 dictionaries:
   - en_us
 languageId: "*"
-words: []
+words:
+  - esbenp
 allowCompoundWords: true
 useGitignore: true
 files:
