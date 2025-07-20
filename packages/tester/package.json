@@ -21,6 +21,6 @@
     "@tsconfig/node24": "^24.0.1",
     "@types/node": "^24.0.14",
     "typescript": "5.8.3",
-    "library-packaged": "file:../../artifacts/library/"
+    "library-packaged": "file:../../artifacts/library.tgz"
   }
 }
