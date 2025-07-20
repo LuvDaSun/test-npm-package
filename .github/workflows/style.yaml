@@ -9,7 +9,7 @@ jobs:
         with:
           node-version: "22.8.0"
       - uses: actions/checkout@v4
-      - run: npm clean-install
+      - run: npm --workspaces=false clean-install
       - run: npm run formatting
 
   spelling:
@@ -19,5 +19,5 @@ jobs:
         with:
           node-version: "22.8.0"
       - uses: actions/checkout@v4
-      - run: npm clean-install
+      - run: npm --workspaces=false clean-install
       - run: npm run spelling
