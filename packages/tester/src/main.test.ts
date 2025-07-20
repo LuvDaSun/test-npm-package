@@ -11,7 +11,9 @@ test("reverse e2e", () => {
 
 // this should come from the library-packaged module
 test("dirname e2e", () => {
-  const actual = import.meta.resolve(getDirname())
-  const expected = import.meta.resolve("../../../artifacts/library/package/transpiled");
+  const actual = import.meta.resolve(getDirname());
+  const expected = import.meta.resolve(
+    "../../../artifacts/library/package/transpiled",
+  );
   assert.equal(actual, expected);
 });
