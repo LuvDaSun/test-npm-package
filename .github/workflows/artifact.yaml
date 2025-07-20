@@ -1,0 +1,18 @@
+on:
+  push: {}
+  pull_request: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24.4.1"
+      - uses: extractions/setup-just@v2
+      - uses: actions/checkout@v4
+      - run: just build-all
+      - uses: actions/upload-artifact@v4
+        with:
+          name: library.tgz
+          path: artifacts/library.tgz
