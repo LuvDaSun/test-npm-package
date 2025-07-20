@@ -20,13 +20,17 @@ build-library: \
   install-library \
 
   mkdir -p artifacts/
+  mkdir -p artifacts/library
 
   npm --workspace library run transpile
 
-  mv artifacts/$( npm pack \
-    --workspace library \
-    --pack-destination artifacts/ \
-  ) artifacts/library.tgz
+  tar \
+    -x \
+    -f artifacts/$( npm pack \
+      --workspace library \
+      --pack-destination artifacts/ \
+    ) \
+    -C artifacts/library/ \
 
 build-tester: \
   install-tester \
