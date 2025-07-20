@@ -1,15 +1,23 @@
 install-all: \
+  install-library \
+  install-tester \
 
-  npm clean-install
+install-library: \
+
+  npm --workspace library clean-install
+
+install-tester: \
+  build-library \
+
+  npm --workspace tester clean-install
 
 
 build-all: \
   build-library \
   build-tester \
 
-
 build-library: \
-  install-all \
+  install-library \
 
   mkdir -p artifacts/
 
@@ -20,10 +28,8 @@ build-library: \
     --pack-destination artifacts/ \
   ) artifacts/library.tgz
 
-
 build-tester: \
-  install-all \
-  build-library \
+  install-tester \
 
   npm --workspace tester run transpile
 
@@ -32,4 +38,3 @@ test-all: \
   build-all \
 
   node --test ./packages/*/transpiled/**/*.test.js
-
