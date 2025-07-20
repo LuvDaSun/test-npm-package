@@ -13,7 +13,7 @@ test("reverse e2e", () => {
 test("dirname e2e", () => {
   const actual = import.meta.resolve(getDirname());
   const expected = import.meta.resolve(
-    "../../../artifacts/library/package/transpiled",
+    "../../../artifacts/library/transpiled",
   );
   assert.equal(actual, expected);
 });

@@ -31,6 +31,8 @@ build-library: \
       --pack-destination artifacts/ \
     ) \
     -C artifacts/library/ \
+    --strip-components 1 \
+    package/
 
 build-tester: \
   install-tester \
