@@ -23,6 +23,6 @@
     "typescript": "5.8.3"
   },
   "optionalDependencies": {
-    "library-packaged": "file:../../artifacts/library-0.0.0.tgz"
+    "library-packaged": "file:../../artifacts/library.tgz"
   }
 }
